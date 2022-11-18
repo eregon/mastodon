@@ -119,6 +119,7 @@ gem 'kaminari', '~> 1.2'
 gem 'redcarpet', '~> 3.5'
 
 # Emails
+gem 'net-smtp', require: false
 gem 'premailer-rails'
 
 # Web Push protocol
