@@ -19,6 +19,7 @@ gem 'rack-cors', '~> 1.1', require: 'rack/cors'
 gem 'rails', '~> 6.1.7'
 gem 'rails-i18n', '~> 6.0'
 gem 'bootsnap', '~> 1.13.0', require: false
+gem 'psych', '< 4' # On rails 7 upgrade remove and use ActiveRecord.use_yaml_unsafe_load = true
 
 # Database
 gem 'pg', '~> 1.4'
