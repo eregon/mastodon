@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.4.1
+  ruby: circleci/ruby@2.0.0
   node: circleci/node@5.0.1
 
 executors:
@@ -45,7 +45,7 @@ commands:
             bundle config without 'development production'
           name: Set bundler settings
       - ruby/install-deps:
-          bundler-version: '2.3.8'
+          bundler-version: '2.3.19'
           key: ruby<< parameters.ruby-version >>-gems-v1
   wait-db:
     steps:
