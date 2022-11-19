@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '>= 2.6.0', '< 3.2.0'
+ruby '>= 2.7.0', '< 3.2.0'
 
 # Detect need libraries for compiling Ruby native extensions
 gem 'pkg-config', '~> 1.4'
