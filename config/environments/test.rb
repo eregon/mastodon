@@ -15,17 +15,17 @@ Rails.application.configure do
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
+    "Cache-Control" => "public, max-age=#{1.hour.to_i}"
   }
   config.assets.digest = false
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
   # The default store, file_store is shared by processes parallelly executed
   # and should not be used.
-  config.cache_store = :memory_store
+  config.cache_store = :redis_cache_store, REDIS_CACHE_PARAMS
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
@@ -34,7 +34,7 @@ Rails.application.configure do
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_options = { from: 'notifications@localhost' }
+  config.action_mailer.default_options = {from: "notifications@localhost"}
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
@@ -44,7 +44,7 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.x.otp_secret = '100c7faeef00caa29242f6b04156742bf76065771fd4117990c4282b8748ff3d99f8fdae97c982ab5bd2e6756a159121377cce4421f4a8ecd2d67bd7749a3fb4'
+  config.x.otp_secret = "100c7faeef00caa29242f6b04156742bf76065771fd4117990c4282b8748ff3d99f8fdae97c982ab5bd2e6756a159121377cce4421f4a8ecd2d67bd7749a3fb4"
 
   # Generate random VAPID keys
   vapid_key = Webpush.generate_key
@@ -61,14 +61,13 @@ end
 Paperclip::Attachment.default_options[:path] = "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
 
 # set fake_data for pam, don't do real calls, just use fake data
-if ENV['PAM_ENABLED'] == 'true'
-  Rpam2.fake_data =
-    {
-      usernames: Set['pam_user1', 'pam_user2'],
-      servicenames: Set['pam_test', 'pam_test_controlled'],
-      password: '123456',
-      env: { email: 'pam@example.com' }
-    }
+if ENV["PAM_ENABLED"] == "true"
+  Rpam2.fake_data = {
+    usernames: Set["pam_user1", "pam_user2"],
+    servicenames: Set["pam_test", "pam_test_controlled"],
+    password: "123456",
+    env: {email: "pam@example.com"}
+  }
 end
 
 # Catch serialization warnings early

@@ -146,7 +146,6 @@ gem 'charlock_holmes', '~> 0.7.7' # Character encoding detection
 gem 'concurrent-ruby', require: false
 gem 'connection_pool', require: false # Generic connection pooling
 gem 'fast_blank', '~> 1.0' # Faster String#blank?
-gem 'posix-spawn' # Should be removed https://github.com/rtomayko/posix-spawn/issues/90
 gem 'stoplight', '~> 3.0.0' # Circuit breaker pattern
 gem 'tzinfo-data', '~> 1.2022'
 gem 'xorcist', '~> 1.1' # String XOR

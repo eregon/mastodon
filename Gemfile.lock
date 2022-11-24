@@ -463,7 +463,6 @@ GEM
     pghero (2.8.3)
       activerecord (>= 5)
     pkg-config (1.4.9)
-    posix-spawn (0.3.15)
     premailer (1.14.2)
       addressable
       css_parser (>= 1.6.0)
@@ -812,7 +811,6 @@ DEPENDENCIES
   pg (~> 1.4)
   pghero (~> 2.8)
   pkg-config (~> 1.4)
-  posix-spawn
   premailer-rails
   private_address_check (~> 0.5)
   pry-byebug (~> 3.10)
@@ -863,3 +861,9 @@ DEPENDENCIES
   webpacker (~> 5.4)
   webpush!
   xorcist (~> 1.1)
+
+RUBY VERSION
+   ruby 3.1.2p0 (truffleruby 23.0.0-dev-0e630a00)
+
+BUNDLED WITH
+   2.3.26

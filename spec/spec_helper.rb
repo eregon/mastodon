@@ -41,7 +41,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    return unless RUBY_ENGINE == "truffleruby"
+    break if RUBY_ENGINE == "truffleruby"
     gc_counter += 1
 
     if gc_counter > 19
